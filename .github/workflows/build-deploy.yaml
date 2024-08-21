@@ -9,6 +9,15 @@ on: [push, pull_request]
 #      - "test_branch"
 jobs:
   job1:
+    env:
+      DB_PORT: 5432
+      DB_HOST: localhost
+      DB_USER: admin
+      DB_PASS: root
+      DB_NAME: fs
+      SECRET_KEY: "b013c6a5f8caabd4b1fc25cba96a58cfeeeacce9cfe7d5a575ee7745ed483df4"
+      ALGORITHM: "HS256"
+      ACCESS_TOKEN_EXPIRE_MINUTES: 60
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
@@ -25,3 +34,4 @@ jobs:
         run: |
           pip install pytest
           pytest
+
