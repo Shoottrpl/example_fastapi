@@ -12,14 +12,14 @@ jobs:
     environment:
       name: testing
     env:
-      DB_PORT: ${{DB_PORT}}
-      DB_HOST: ${{DB_HOST}}
-      DB_USER: ${{DB_USER}}
-      DB_PASS: ${{DB_PASS}}
-      DB_NAME: ${{DB_NAME}}
-      SECRET_KEY: ${{SECRET_KEY}}
-      ALGORITHM: ${{ALGORITHM}}
-      ACCESS_TOKEN_EXPIRE_MINUTES: ${{ACCESS_TOKEN_EXPIRE_MINUTES}}
+      DB_PORT: ${{secrets.DB_PORT}}
+      DB_HOST: ${{secrets.DB_HOST}}
+      DB_USER: ${{secrets.DB_USER}}
+      DB_PASS: ${{secrets.DB_PASS}}
+      DB_NAME: ${{secrets.DB_NAME}}
+      SECRET_KEY: ${{secrets.SECRET_KEY}}
+      ALGORITHM: ${{secrets.ALGORITHM}}
+      ACCESS_TOKEN_EXPIRE_MINUTES: ${{secrets.ACCESS_TOKEN_EXPIRE_MINUTES}}
     runs-on: ubuntu-latest
     steps:
       - name: pulling git repo
