@@ -13,7 +13,7 @@ jobs:
       name: testing
     env:
       DB_PORT: ${{secrets.DB_PORT}}
-      DB_HOST: ${{secrets.DB_HOST}}
+      DB_HOST: postgres
       DB_USER: ${{secrets.DB_USER}}
       DB_PASS: ${{secrets.DB_PASS}}
       DB_NAME: ${{secrets.DB_NAME}}
@@ -24,7 +24,6 @@ jobs:
       postgres:
         image: postgres
         env:
-          POSTGRES_USERNAME: ${{secrets.DB_USER}}
           POSTGRES_PASSWORD: ${{secrets.DB_PASS}}
           POSTGRES_DB: test_${{secrets.DB_NAME}}
         ports:
