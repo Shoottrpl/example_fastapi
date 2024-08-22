@@ -81,10 +81,24 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
-
+    environment:
+      name: production
     steps:
-      - name: deploying stuff
-        run: echo "deploy some"
-
-
+      - name: login ubuntu server
+        run:  ssh admin@176.109.104.48
+      - name:
+        run: cd /home/fastapi/app/src/
+      - name: pull
+        run: git pull
+      - name: deploy on ubuntu server
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.PROD_HOST }}
+          username: ${{ secrets.PROD_USERNAME }}
+          password: ${{ secrets.PASSWORD }}
+          key: ${{ secrets.KEY }}
+          script: |
+            cd app/src
+            git pull
+            sudo systemctl restart api
 
