@@ -93,5 +93,5 @@ jobs:
           script: |
             cd app/src
             git pull
-            echo ${{ secrets.SUDO_PASSWORD }} | sudo -S systemctl restart app
+            echo ${{ secrets.SUDO_PASSWORD }} | sudo -S systemctl restart api
 
