@@ -91,6 +91,7 @@ jobs:
           username: ${{ secrets.PROD_USERNAME }}
           key: ${{ secrets.KEY }}
           script: |
+            bash
             cd app/src
             git pull
             sudo systemctl restart app
