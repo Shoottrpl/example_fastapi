@@ -93,5 +93,5 @@ jobs:
           script: |
             cd app/src
             git pull
-            echo 1337|sudo systemctl restart app
+            echo 1337 | sudo -S systemctl restart app
 
