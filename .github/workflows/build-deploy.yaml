@@ -84,8 +84,6 @@ jobs:
     environment:
       name: production
     steps:
-      - name: Adding Known Hosts
-        run: ssh-keyscan -H ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts
       - name: deploy on ubuntu server
         uses: appleboy/ssh-action@v1.0.3
         with:
@@ -96,4 +94,6 @@ jobs:
             cd app/src
             git pull
             sudo systemctl restart api
+      - name: Adding Known Hosts
+        run: ssh-keyscan -H ${{ secrets.PROD_HOST }} >> ~/.ssh/known_hosts
 
